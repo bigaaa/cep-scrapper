@@ -17,6 +17,9 @@ install-dependencies:
 
 create-venv: .create-venv install-dependencies
 
+code-convention:
+	flake8
+
 test:
 	pytest tests/tests.py -v
 

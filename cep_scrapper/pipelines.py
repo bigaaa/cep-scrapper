@@ -6,15 +6,15 @@
 
 # useful for handling different item types with a single interface
 import json
+import os
 from datetime import datetime
-
-from itemadapter import ItemAdapter
 
 
 class CepScrapperPipeline:
     def open_spider(self, spider):
         today = datetime.today().strftime('%d-%m-%Y')
-        self.file = open(f'scrapped-ceps-{today}.jsonl', 'w', encoding='utf-8')
+        os.makedirs('output', exist_ok=True)
+        self.file = open(f'output/scrapped-ceps-{today}.jsonl', 'w', encoding='utf-8')
 
     def close_spider(self, spider):
         self.file.close()

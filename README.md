@@ -17,6 +17,12 @@ make create-venv
 pyenv activate cep-scrapper-3.8.5
 ```
 
+### Running
+
+```bash
+scrapy crawl buscacep_correios
+```
+
 ### Testing
 
 ```bash

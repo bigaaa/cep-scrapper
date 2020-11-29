@@ -24,10 +24,11 @@ class BuscacepCorreiosSpider(scrapy.Spider):
 
         for row in table:
             columns = row.xpath('./td/text()').getall()
-            new_item = CepScrapperItem(id=str(uuid4()), uf=uf, locality=columns[0],
-                                       cep_range=columns[1], status=columns[2], range_type=columns[3])
+            new_item = CepScrapperItem(
+                id=str(uuid4()), uf=uf, locality=columns[0], cep_range=columns[1],
+                status=columns[2], range_type=columns[3]
+            )
             yield new_item
 
         if next_page_link:
             yield FormRequest.from_response(response, formname='Proxima', callback=self.get_cep)
-
