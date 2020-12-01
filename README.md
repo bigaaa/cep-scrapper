@@ -22,9 +22,3 @@ pyenv activate cep-scrapper-3.8.5
 ```bash
 scrapy crawl buscacep_correios
 ```
-
-### Testing
-
-```bash
-make
-```
